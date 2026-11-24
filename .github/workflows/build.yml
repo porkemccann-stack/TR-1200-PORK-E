@@ -1,0 +1,32 @@
+name: Build TR-1200 for MPC X (ARM)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+      - name: Find and build TR-1200.so
+        run: |
+          find . -name "plugin.cpp" -print
+          PLUGIN_CPP=$(find . -name "plugin.cpp" | head -n 1)
+          echo "Building $PLUGIN_CPP"
+          aarch64-linux-gnu-g++ -shared -fPIC -O2 -std=c++17 "$PLUGIN_CPP" -o TR-1200.so
+          ls -lh TR-1200.so
+          file TR-1200.so
+
+      - name: Upload TR-1200.so
+        uses: actions/upload-artifact@v4
+        with:
+          name: TR-1200-MPC-X-so
+          path: TR-1200.so
