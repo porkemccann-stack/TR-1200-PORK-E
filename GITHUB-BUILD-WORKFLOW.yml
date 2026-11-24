@@ -1,0 +1,23 @@
+# TO USE ON GITHUB: Create .github/workflows/build.yml in your repo and paste this file there
+# OR rename this file to build.yml and put it in .github/workflows/
+name: Build TR-1200 for MPC X (ARM)
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build-mpc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ARM compiler
+        run: sudo apt-get update && sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu cmake
+      - name: Build TR-1200.so (aarch64)
+        run: |
+          cd "VST2 Plugins/TR-1200"
+          aarch64-linux-gnu-g++ -O3 -fPIC -shared -std=c++17 plugin.cpp -o TR-1200.so -lm
+          ls -lh TR-1200.so
+      - name: Upload TR-1200.so
+        uses: actions/upload-artifact@v4
+        with:
+          name: TR-1200-MPC-X-so
+          path: VST2 Plugins/TR-1200/TR-1200.so

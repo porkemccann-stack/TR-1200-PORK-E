@@ -1,0 +1,281 @@
+{
+  "name": "TR-1200",
+  "version": "1.0.0",
+  "background": "#C8C2B0",
+  "panelImage": "TR-1200-panel.png",
+  "size": {
+    "width": 1280,
+    "height": 720
+  },
+  "layout": "SP-1200 style - left faders, top LCD, center knobs, bottom 16 pads",
+  "colors": {
+    "sp1200_beige": "#C8C2B0",
+    "sp1200_dark": "#2A2D33",
+    "tr808_red": "#E6301F",
+    "tr808_orange": "#FF7A00",
+    "tr808_yellow": "#FFD400",
+    "tr808_white": "#F5F0E6",
+    "tr808_teal": "#00B8A9",
+    "lcd_green": "#7CFFB2"
+  },
+  "controls": [
+    {
+      "id": "LONG_BOOM",
+      "type": "knob",
+      "label": "LONG BOOM - BD LONG DECAY",
+      "param": 0,
+      "x": 285,
+      "y": 210,
+      "w": 130,
+      "h": 130,
+      "color": "#E6301F",
+      "min": 0.1,
+      "max": 4.0,
+      "default": 2.8,
+      "note": "Extra long 808 - up to 4 seconds, use 2.5-3.5s for boom"
+    },
+    {
+      "id": "BOOM_TUNE",
+      "type": "knob",
+      "label": "BOOM TUNE",
+      "param": 1,
+      "x": 430,
+      "y": 240,
+      "w": 70,
+      "h": 70,
+      "color": "#E6301F"
+    },
+    {
+      "id": "BOOM_LEVEL",
+      "type": "slider",
+      "label": "BOOM LEVEL",
+      "param": 2,
+      "x": 520,
+      "y": 230,
+      "w": 28,
+      "h": 110,
+      "color": "#E6301F"
+    },
+    {
+      "id": "MASTER",
+      "type": "knob",
+      "label": "MASTER",
+      "param": 3,
+      "x": 1150,
+      "y": 240,
+      "w": 85,
+      "h": 85,
+      "color": "#F5F0E6"
+    },
+    {
+      "id": "CRUSH",
+      "type": "knob",
+      "label": "12-BIT CRUSH",
+      "param": 4,
+      "x": 1040,
+      "y": 210,
+      "w": 85,
+      "h": 85,
+      "color": "#00B8A9"
+    },
+    {
+      "id": "SRR",
+      "type": "knob",
+      "label": "SRR / BIT",
+      "param": 5,
+      "x": 1040,
+      "y": 340,
+      "w": 60,
+      "h": 60,
+      "color": "#2A2D33"
+    },
+    {
+      "id": "FILTER",
+      "type": "knob",
+      "label": "FILTER",
+      "param": 6,
+      "x": 1130,
+      "y": 340,
+      "w": 60,
+      "h": 60,
+      "color": "#F5F0E6"
+    },
+    {
+      "id": "DRIVE",
+      "type": "knob",
+      "label": "DRIVE",
+      "param": 7,
+      "x": 1130,
+      "y": 430,
+      "w": 60,
+      "h": 60,
+      "color": "#FF7A00"
+    },
+    {
+      "id": "PUNCH",
+      "type": "knob",
+      "label": "PUNCH",
+      "param": 8,
+      "x": 1040,
+      "y": 430,
+      "w": 60,
+      "h": 60,
+      "color": "#FFD400"
+    },
+    {
+      "id": "SNARE_DECAY",
+      "type": "knob",
+      "label": "SN DECAY",
+      "param": 9,
+      "x": 640,
+      "y": 210,
+      "w": 60,
+      "h": 60,
+      "color": "#FF7A00"
+    },
+    {
+      "id": "HAT_DECAY",
+      "type": "knob",
+      "label": "HAT DECAY",
+      "param": 10,
+      "x": 840,
+      "y": 210,
+      "w": 60,
+      "h": 60,
+      "color": "#FFD400"
+    }
+  ],
+  "pads": [
+    {
+      "pad": 1,
+      "note": 36,
+      "label": "BD LONG",
+      "color": "#E6301F"
+    },
+    {
+      "pad": 2,
+      "note": 37,
+      "label": "BD",
+      "color": "#E6301F"
+    },
+    {
+      "pad": 3,
+      "note": 38,
+      "label": "SN",
+      "color": "#FF7A00"
+    },
+    {
+      "pad": 4,
+      "note": 39,
+      "label": "CLAP",
+      "color": "#FF7A00"
+    },
+    {
+      "pad": 5,
+      "note": 40,
+      "label": "RIM",
+      "color": "#FF7A00"
+    },
+    {
+      "pad": 6,
+      "note": 41,
+      "label": "COWBELL",
+      "color": "#FFD400"
+    },
+    {
+      "pad": 7,
+      "note": 42,
+      "label": "CLAVE",
+      "color": "#FFD400"
+    },
+    {
+      "pad": 8,
+      "note": 43,
+      "label": "TOM LO",
+      "color": "#F5F0E6"
+    },
+    {
+      "pad": 9,
+      "note": 47,
+      "label": "HAT",
+      "color": "#FFD400"
+    },
+    {
+      "pad": 10,
+      "note": 49,
+      "label": "CYM",
+      "color": "#F5F0E6"
+    },
+    {
+      "pad": 11,
+      "note": 44,
+      "label": "TOM MID",
+      "color": "#F5F0E6"
+    },
+    {
+      "pad": 12,
+      "note": 45,
+      "label": "TOM HI",
+      "color": "#F5F0E6"
+    },
+    {
+      "pad": 13,
+      "note": 46,
+      "label": "CONGA",
+      "color": "#FFD400"
+    },
+    {
+      "pad": 14,
+      "note": 48,
+      "label": "OPEN HAT",
+      "color": "#FFD400"
+    },
+    {
+      "pad": 15,
+      "note": 50,
+      "label": "RIDE",
+      "color": "#F5F0E6"
+    },
+    {
+      "pad": 16,
+      "note": 39,
+      "label": "CLAP 2",
+      "color": "#FF7A00"
+    }
+  ],
+  "faders": [
+    {
+      "channel": 1,
+      "label": "BD LONG"
+    },
+    {
+      "channel": 2,
+      "label": "BD"
+    },
+    {
+      "channel": 3,
+      "label": "SN"
+    },
+    {
+      "channel": 4,
+      "label": "CLAP"
+    },
+    {
+      "channel": 5,
+      "label": "RIM"
+    },
+    {
+      "channel": 6,
+      "label": "COWBELL"
+    },
+    {
+      "channel": 7,
+      "label": "HAT"
+    },
+    {
+      "channel": 8,
+      "label": "CYM"
+    }
+  ],
+  "notes": "Keep Master at 0.70-0.75 to avoid clipping like 808 Long Boom did. LONG BOOM defaults to 2.8s - turn down to 1.8s if it overlaps too much. Poly mode ON by default so long tail rings."
+}

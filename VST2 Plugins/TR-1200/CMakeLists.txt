@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.15)
+project(TR-1200)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# MPC X is aarch64 Linux - GitHub Actions builds with aarch64-linux-gnu-g++
+add_library(TR-1200 SHARED plugin.cpp)
+set_target_properties(TR-1200 PROPERTIES PREFIX "" SUFFIX ".so" OUTPUT_NAME "TR-1200")
+target_compile_options(TR-1200 PRIVATE -O3 -fPIC -ffast-math)
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64|ARM64")
+  message(STATUS "Building for MPC aarch64")
+endif()

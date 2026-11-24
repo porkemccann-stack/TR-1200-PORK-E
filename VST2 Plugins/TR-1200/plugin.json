@@ -1,0 +1,156 @@
+{
+  "name": "TR-1200",
+  "displayName": "TR-1200",
+  "version": "1.0.0",
+  "author": "Pork-E / Face Off Muzik",
+  "description": "SP-1200 layout + TR-808 sounds with extra long 808 boom. 12-bit crush, poly voices, MPC X standalone.",
+  "category": "Drum",
+  "type": "VST2",
+  "pluginType": "instrument",
+  "apiVersion": 1,
+  "sdk": "OpenMPC / MPC VST2",
+  "target": "MPC X / MPC Live / MPC One - MPC OS 3.x",
+  "architecture": "aarch64",
+  "entry": "TR-1200.so",
+  "skin": "skin.json",
+  "panel": "TR-1200-panel.png",
+  "numPrograms": 1,
+  "numParameters": 16,
+  "numInputs": 0,
+  "numOutputs": 2,
+  "isSynth": true,
+  "midiMap": {
+    "36": "BD LONG - Extra Long Boom",
+    "37": "BD Classic 808",
+    "38": "Snare",
+    "39": "Clap",
+    "40": "Rimshot",
+    "41": "Cowbell",
+    "42": "Clave",
+    "43": "Tom Low",
+    "44": "Tom Mid",
+    "45": "Tom High",
+    "46": "Conga / Maraca",
+    "47": "Closed Hat",
+    "48": "Open Hat",
+    "49": "Crash Cymbal",
+    "50": "Ride Cymbal"
+  },
+  "parameters": [
+    {
+      "index": 0,
+      "name": "LONG BOOM Decay",
+      "min": 0.1,
+      "max": 4.0,
+      "default": 2.8,
+      "unit": "s"
+    },
+    {
+      "index": 1,
+      "name": "LONG BOOM Tune",
+      "min": 30,
+      "max": 80,
+      "default": 48,
+      "unit": "Hz"
+    },
+    {
+      "index": 2,
+      "name": "LONG BOOM Level",
+      "min": 0,
+      "max": 1,
+      "default": 0.85
+    },
+    {
+      "index": 3,
+      "name": "Master Level",
+      "min": 0,
+      "max": 1,
+      "default": 0.75
+    },
+    {
+      "index": 4,
+      "name": "12-Bit Crush",
+      "min": 0,
+      "max": 1,
+      "default": 0.65
+    },
+    {
+      "index": 5,
+      "name": "Sample Rate Reduction",
+      "min": 0,
+      "max": 1,
+      "default": 0.35
+    },
+    {
+      "index": 6,
+      "name": "Filter",
+      "min": 200,
+      "max": 12000,
+      "default": 8000,
+      "unit": "Hz"
+    },
+    {
+      "index": 7,
+      "name": "Drive",
+      "min": 0,
+      "max": 1,
+      "default": 0.15
+    },
+    {
+      "index": 8,
+      "name": "Punch / Click",
+      "min": 0,
+      "max": 1,
+      "default": 0.5
+    },
+    {
+      "index": 9,
+      "name": "Snare Decay",
+      "min": 0.05,
+      "max": 0.8,
+      "default": 0.22
+    },
+    {
+      "index": 10,
+      "name": "Hat Decay",
+      "min": 0.02,
+      "max": 0.6,
+      "default": 0.12
+    },
+    {
+      "index": 11,
+      "name": "Tom Tune",
+      "min": 0.5,
+      "max": 2.0,
+      "default": 1.0
+    },
+    {
+      "index": 12,
+      "name": "Clap Repeats",
+      "min": 2,
+      "max": 5,
+      "default": 4
+    },
+    {
+      "index": 13,
+      "name": "Cowbell Tune",
+      "min": 0.8,
+      "max": 1.2,
+      "default": 1.0
+    },
+    {
+      "index": 14,
+      "name": "Cymbal Decay",
+      "min": 0.5,
+      "max": 3.0,
+      "default": 1.6
+    },
+    {
+      "index": 15,
+      "name": "Poly / Mono",
+      "min": 0,
+      "max": 1,
+      "default": 1
+    }
+  ]
+}
