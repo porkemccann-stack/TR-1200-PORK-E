@@ -11,19 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install ARM compiler
+      - name: Install ARM toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+          sudo apt-get install -y cmake gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
-      - name: Find and build TR-1200.so
+      - name: Build with CMake
         run: |
-          find . -name "plugin.cpp" -print
-          PLUGIN_CPP=$(find . -name "plugin.cpp" | head -n 1)
-          echo "Building $PLUGIN_CPP"
-          aarch64-linux-gnu-g++ -shared -fPIC -O2 -std=c++17 "$PLUGIN_CPP" -o TR-1200.so
-          ls -lh TR-1200.so
-          file TR-1200.so
+          CMAKE_FILE=$(find . -name "CMakeLists.txt" | head -n 1)
+          echo "Found $CMAKE_FILE"
+          BUILD_DIR=$(dirname "$CMAKE_FILE")
+          cd "$BUILD_DIR"
+          mkdir -p build
+          cd build
+          cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=aarch64 -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++
+          cmake --build . --config Release -v
+          find . -name "*.so" -exec ls -lh {} \;
+          cp $(find . -name "*.so" | head -n 1) $GITHUB_WORKSPACE/TR-1200.so
+          ls -lh $GITHUB_WORKSPACE/TR-1200.so
+          file $GITHUB_WORKSPACE/TR-1200.so
 
       - name: Upload TR-1200.so
         uses: actions/upload-artifact@v4
