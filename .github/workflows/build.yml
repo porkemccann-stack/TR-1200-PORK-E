@@ -1,4 +1,4 @@
-name: Build TR-1200 for MPC X (ARM)
+name: Build TR-1200 for MPC X (32-bit ARM)
 
 on:
   push:
@@ -10,29 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install ARM toolchain
+      - name: Install 32-bit ARM toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
-
-      - name: Build with CMake
+          sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+      - name: Build TR-1200.so (32-bit ARM)
         run: |
-          CMAKE_FILE=$(find . -name "CMakeLists.txt" | head -n 1)
-          echo "Found $CMAKE_FILE"
-          BUILD_DIR=$(dirname "$CMAKE_FILE")
-          cd "$BUILD_DIR"
-          mkdir -p build
-          cd build
-          cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=aarch64 -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++
-          cmake --build . --config Release -v
-          find . -name "*.so" -exec ls -lh {} \;
-          cp $(find . -name "*.so" | head -n 1) $GITHUB_WORKSPACE/TR-1200.so
-          ls -lh $GITHUB_WORKSPACE/TR-1200.so
-          file $GITHUB_WORKSPACE/TR-1200.so
-
-      - name: Upload TR-1200.so
+          arm-linux-gnueabihf-g++ -shared -fPIC -O2 -march=armv7-a -mfloat-abi=hard -o TR-1200.so plugin.cpp
+          file TR-1200.so
+          ls -lh TR-1200.so
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: TR-1200-MPC-X-so
+          name: TR-1200-MPC-X-32bit
           path: TR-1200.so
